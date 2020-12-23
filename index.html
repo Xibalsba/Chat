@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Chat | Cafeología</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	 <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script
+	  src="https://code.jquery.com/jquery-3.4.0.min.js"
+	  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+	  crossorigin="anonymous"></script>
+	 <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+	 <!-- Firebase App is always required and must be first -->
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+
+	<!-- Add additional services that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-database.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script> 
+
+    <style>
+    	p {
+  margin: 0 0 0.5em;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  background: #e5e5ea;
+  max-width: 75%;
+  clear: both;
+  position: relative;
+}
+p.them {
+  float: left;
+}
+p.me {
+  float: right;
+  background-color: #1289fe;
+  color: white;
+}
+
+    </style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col m12 valign-wrapper login">
+				<button class="waves-effect waves-light btn red center-align" id="login">Iniciar sesión</button>
+			</div>
+			<div id="app" class="col m12" style="display: none;">
+				<div class="row">
+					<div class="col m4">
+							<div class="indigo white-text" style="padding: 10px 15px;">
+								Usuarios conectados
+							</div>
+						    <ul class="collection" id="users">
+						    </ul>
+						 <div class="row">
+						 	<div class="col m12 valign-wrapper logout" style="display: none;">
+								<button class="waves-effect waves-light btn black center-align" id="logout">Cerrar sesión</button>
+							</div>
+						 </div>
+					</div>
+					<div class="col m4">
+						<div class="box" id="chat">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/x-custom-template" id="hidden-template">
+	<div class="chat" id="${id}">
+		<ul class="messages collection with-header" style="height: 400px;overflow-y: scroll;">
+			<li class="collection-header blue darken-3 white-text fixed:top;"><h6>Estás platicando con <span>${nombre}</span></h6></li>
+		</ul>
+		<form class="form">
+			<input type="text" placeholder="mensaje" class="message-content">
+			<input type="submit" class="btn btn-raised indigo white-text" value="Enviar">
+		</form>
+	</div>
+</script>
+<script src="main.js"></script>
+<script src="chat.js"></script>
+</html>
